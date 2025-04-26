@@ -23,7 +23,7 @@ import com.example.levaja.ui.components.LevajaButton
 
 @Composable
 fun LoginScreen() {
-    var name by remember { mutableStateOf("João Programador") }
+    var name by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
     Column(
@@ -33,9 +33,9 @@ fun LoginScreen() {
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_launcher_background),
+            painter = painterResource(id = R.drawable.screenshot_from_2025_04_26_16_56_00),
             contentDescription = "Logo Leva Já",
-            modifier = Modifier.size(120.dp)
+            modifier = Modifier.size(120.dp).align(Alignment.CenterHorizontally)
         )
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -43,15 +43,22 @@ fun LoginScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.CenterHorizontally)
-                .padding(16.dp), // Adiciona um padding geral ao Box
+                .padding(16.dp),
         ) {
             Column(
                 modifier = Modifier
                     .width(300.dp)
                     .align(Alignment.Center)
             ) {
-                Text(text = "Login", fontSize = 28.sp)
-                Text(text = "Entre para continuar", color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
+                Text(
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally),
+                    text = "Login", fontSize = 28.sp
+                )
+                Text(
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally),
+                    text = "Entre para continuar", color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
                 Spacer(modifier = Modifier.height(10.dp))
                 LevaJaTextField(
                     value = name,

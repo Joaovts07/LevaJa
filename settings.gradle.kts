@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "LevaJa"
 include(":app")
- 
+include(":login")
