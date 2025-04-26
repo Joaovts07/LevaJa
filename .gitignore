@@ -12,4 +12,6 @@
 /captures
 .externalNativeBuild
 .cxx
+.kotlin
+.idea
 local.properties
