@@ -9,6 +9,7 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -17,20 +18,21 @@ fun LevaJaTextField(
     onValueChange: (String) -> Unit,
     label: String,
     leadingIcon: @Composable (() -> Unit)? = null,
-    placeholder: String? = null // Adicionamos o parâmetro placeholder
+    placeholder: String? = null,
+    visualTransformation: VisualTransformation = VisualTransformation.None
 ) {
     TextField(
         value = value,
         onValueChange = onValueChange,
         label = { Text(label) },
         leadingIcon = leadingIcon,
-        placeholder = { // Usamos o parâmetro placeholder aqui
+        placeholder = {
             if (placeholder != null) {
                 Text(placeholder)
             }
         },
         modifier = Modifier
-            .padding(16.dp)
+            .padding(start = 16.dp, end = 16.dp, top = 6.dp, bottom = 6.dp)
             .background(
                 color = Color.LightGray.copy(alpha = 0.3f),
                 shape = RoundedCornerShape(8.dp)
@@ -41,6 +43,7 @@ fun LevaJaTextField(
             disabledIndicatorColor = Color.Transparent,
             cursorColor = Color.Black
         ),
-        shape = RoundedCornerShape(8.dp)
+        shape = RoundedCornerShape(8.dp),
+        visualTransformation = visualTransformation
     )
 }
