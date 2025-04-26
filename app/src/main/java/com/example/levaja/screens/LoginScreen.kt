@@ -5,10 +5,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
@@ -21,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.levaja.R
 import com.example.levaja.ui.components.LevaJaTextField
+import com.example.levaja.ui.components.LevajaButton
 
 @Composable
 fun LoginScreen() {
@@ -31,7 +30,6 @@ fun LoginScreen() {
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Image(
@@ -41,54 +39,63 @@ fun LoginScreen() {
         )
         Spacer(modifier = Modifier.height(16.dp))
 
-        Text(text = "Login", fontSize = 28.sp)
-        Text(text = "Entre para continuar", color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
-        Spacer(modifier = Modifier.height(10.dp))
-        var nome by remember { mutableStateOf("") }
-        LevaJaTextField(
-            value = nome,
-            onValueChange = { nome = it },
-            label = "NOME",
-            leadingIcon = { Icon(Icons.Filled.Person, contentDescription = "Ícone de Nome") },
-            placeholder = "NAME"
-
-        )
-
-        OutlinedTextField(
-            value = password,
-            onValueChange = { password = it },
-            label = { Text("SENHA") },
-            leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Ícone de Senha") },
-            visualTransformation = PasswordVisualTransformation(),
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Button(
-            onClick = {
-                println("Botão Entrar clicado com Nome: $name, Senha: $password")
-            },
-            modifier = Modifier.fillMaxWidth()
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.CenterHorizontally)
+                .padding(16.dp), // Adiciona um padding geral ao Box
         ) {
-            Text("Entrar")
+            Column(
+                modifier = Modifier
+                    .width(300.dp)
+                    .align(Alignment.Center)
+            ) {
+                Text(text = "Login", fontSize = 28.sp)
+                Text(text = "Entre para continuar", color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
+                Spacer(modifier = Modifier.height(10.dp))
+                LevaJaTextField(
+                    value = name,
+                    onValueChange = { name = it },
+                    label = "NOME",
+                    leadingIcon = { Icon(Icons.Filled.Person, contentDescription = "Ícone de Nome") },
+                    placeholder = "NAME"
+
+                )
+
+                LevaJaTextField(
+                    value = password,
+                    onValueChange = { password = it },
+                    label = "SENHA",
+                    leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Ícone de Senha") },
+                    placeholder = "SENHA",
+                    visualTransformation = PasswordVisualTransformation()
+
+                )
+
+                LevajaButton("Entrar") { }
+                Spacer(modifier = Modifier.height(10.dp))
+
+                TextButton(
+                    modifier = Modifier.align(Alignment.CenterHorizontally).padding(vertical = 2.dp),
+                    onClick = {
+                    println("Esqueceu a senha? clicado")
+                }) {
+                    Text("Esqueceu a senha?")
+                }
+                TextButton(
+                    modifier = Modifier.align(Alignment.CenterHorizontally).padding(vertical = 2.dp),
+                    onClick = {
+                    println("criar conta clicado")
+                }) {
+                    Text("criar conta")
+                }
+            }
+
+
         }
 
-        Spacer(modifier = Modifier.height(8.dp))
 
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            TextButton(onClick = {
-                println("Esqueceu a senha? clicado")
-            }) {
-                Text("Esqueceu a senha?")
-            }
-            TextButton(onClick = {
-                println("criar conta clicado")
-            }) {
-                Text("criar conta")
-            }
-        }
+
     }
 }
 
