@@ -1,6 +1,7 @@
 package com.example.levaja.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -32,7 +33,8 @@ fun LevaJaTextField(
             }
         },
         modifier = Modifier
-            .padding(start = 16.dp, end = 16.dp, top = 6.dp, bottom = 6.dp)
+            .fillMaxWidth()
+            .padding(end = 10.dp, top = 6.dp, bottom = 6.dp)
             .background(
                 color = Color.LightGray.copy(alpha = 0.3f),
                 shape = RoundedCornerShape(8.dp)
