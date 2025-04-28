@@ -22,20 +22,17 @@ import com.example.levaja.ui.components.LevaJaTextField
 import com.example.levaja.ui.components.LevajaButton
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(modifier: Modifier = Modifier) {
     var name by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        modifier = modifier
     ) {
         Image(
             painter = painterResource(id = R.drawable.screenshot_from_2025_04_26_16_56_00),
             contentDescription = "Logo Leva Já",
-            modifier = Modifier.size(120.dp).align(Alignment.CenterHorizontally)
+            modifier = Modifier.size(300.dp).align(Alignment.CenterHorizontally)
         )
         Spacer(modifier = Modifier.height(16.dp))
 
