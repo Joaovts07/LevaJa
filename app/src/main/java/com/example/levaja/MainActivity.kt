@@ -4,7 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.levaja.screens.LoginScreen
 import com.example.levaja.ui.theme.LevaJaTheme
@@ -14,9 +18,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            LevaJaTheme {
-                LoginScreen()
+            Scaffold { innerPAdding ->
+                LevaJaTheme {
+                    LoginScreen(modifier = Modifier.fillMaxWidth().padding(innerPAdding))
+                }
             }
+
         }
     }
 }
