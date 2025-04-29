@@ -53,6 +53,9 @@ dependencies {
     //login
     implementation(project(":login"))
 
+    //navigation
+    implementation(libs.androidx.navigation.compose)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
