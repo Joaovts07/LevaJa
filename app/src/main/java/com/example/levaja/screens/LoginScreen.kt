@@ -1,5 +1,7 @@
 package com.example.levaja.screens
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -12,19 +14,34 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.levaja.R
 import com.example.levaja.ui.components.LevaJaTextField
 import com.example.levaja.ui.components.LevajaButton
+import com.example.login.login.LoginViewModel
+import com.example.login.login.launchGoogleSignIn
+import com.example.login.ui.components.GoogleSignInButton
 
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier) {
+fun LoginScreen(
+    modifier: Modifier = Modifier,
+    viewModel: LoginViewModel = hiltViewModel()
+) {
     var name by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    val context = LocalContext.current
+
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        viewModel.handleGoogleSignInResult(result)
+    }
 
     Column(
         modifier = modifier
@@ -76,6 +93,10 @@ fun LoginScreen(modifier: Modifier = Modifier) {
 
                 )
 
+                GoogleSignInButton {
+                    launchGoogleSignIn(context, launcher )
+                }
+
                 LevajaButton("Entrar") { }
                 Spacer(modifier = Modifier.height(10.dp))
 
@@ -94,13 +115,9 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                     Text("criar conta")
                 }
             }
-
-
         }
-
-
-
     }
+
 }
 
 @Preview(showBackground = true)
