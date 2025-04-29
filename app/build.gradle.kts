@@ -53,6 +53,13 @@ dependencies {
     //login
     implementation(project(":login"))
 
+    //
+    //google autentication
+    implementation(libs.androidx.credentials)
+    implementation(libs.play.services.auth)
+    implementation(libs.googleid)
+
+
     //navigation
     implementation(libs.androidx.navigation.compose)
 
