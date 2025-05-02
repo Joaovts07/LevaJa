@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.login2"
+    namespace = "com.example.login"
     compileSdk = 35
 
     defaultConfig {
