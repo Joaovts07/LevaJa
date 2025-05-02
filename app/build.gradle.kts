@@ -2,15 +2,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
-    namespace = "com.example.levaja"
+    namespace = "com.example.login2"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.levaja"
+        applicationId = "com.example.login2"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -50,24 +49,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-
-    //login
-    implementation(project(":login"))
-
-    //google autentication
-    implementation(libs.androidx.credentials)
-    implementation(libs.play.services.auth)
-    implementation(libs.googleid)
-
-    //hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
-    implementation(libs.androidx.hilt.navigation.compose)
-
-
-    //navigation
-    implementation(libs.androidx.navigation.compose)
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
