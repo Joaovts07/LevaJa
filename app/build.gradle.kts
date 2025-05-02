@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.login2"
+    namespace = "com.example.levaja"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.login2"
+        applicationId = "com.example.levaja"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
