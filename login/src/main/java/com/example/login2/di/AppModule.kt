@@ -26,4 +26,7 @@ object AppModule {
     @Singleton
     fun provideFirebaseStorage(): FirebaseStorage = FirebaseStorage.getInstance()
 
+    @Provides
+    @Singleton
+    fun provideAuthRepository(): AuthRepository = AuthRepositoryImpl(FirebaseAuth.getInstance(), FirebaseFirestore.getInstance())
 }
