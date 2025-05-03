@@ -24,8 +24,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.levaja.R
 import com.example.levaja.ui.components.LevaJaTextField
 import com.example.levaja.ui.components.LevajaButton
-import com.example.login.login.LoginViewModel
-import com.example.login.login.launchGoogleSignIn
+import com.example.login2.presentation.login.LoginViewModel
+import com.example.login2.presentation.login.launchGoogleSignIn
 import com.example.login.ui.components.GoogleSignInButton
 
 @Composable
@@ -94,7 +94,7 @@ fun LoginScreen(
                 )
 
                 GoogleSignInButton {
-                    launchGoogleSignIn(context, launcher )
+                    launchGoogleSignIn(context, launcher  )
                 }
 
                 LevajaButton("Entrar") { }

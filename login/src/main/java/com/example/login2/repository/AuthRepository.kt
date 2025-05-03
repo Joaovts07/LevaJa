@@ -1,4 +1,4 @@
-package com.example.login.data.repository
+package com.example.login2.repository
 
 import com.google.firebase.Timestamp
 

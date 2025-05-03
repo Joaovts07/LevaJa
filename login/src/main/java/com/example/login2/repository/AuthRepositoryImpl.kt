@@ -1,5 +1,6 @@
 package com.example.login.data.repository
 
+import com.example.login2.repository.AuthRepository
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
