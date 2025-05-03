@@ -52,6 +52,11 @@ dependencies {
     //login
     implementation(project(":login"))
 
+    //firebase
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.storage.ktx)
+    implementation(libs.google.firebase.firestore.ktx)
+
     //hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
