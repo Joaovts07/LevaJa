@@ -1,4 +1,4 @@
-package com.example.login.login
+package com.example.login.presentation.login
 
 import android.content.Intent
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -63,7 +63,7 @@ fun LoginScreen(
             onEmailChange = viewModel::onEmailChange,
             onPasswordChange = viewModel::onPasswordChange,
             onLoginClick = viewModel::login,
-            onGoogleSignInClick = { launchGoogleSignIn(context, launcher) },
+            onGoogleSignInClick = { launchGoogleSignIn(context, viewModel, launcher) },
             onRegisterClick = { navController.navigate("basicForm") },
             onLoginSuccess = onLoginSuccess,
             modifier = Modifier
@@ -131,7 +131,7 @@ fun LoginContent(
     }
 }
 
-fun launchGoogleSignIn(context: android.content.Context, launcher: androidx.activity.result.ActivityResultLauncher<Intent>) {
+fun launchGoogleSignIn(context: android.content.Context, viewModel: LoginViewModel, launcher: androidx.activity.result.ActivityResultLauncher<Intent>) {
 
     val googleClientId = BuildConfig.GOOGLE_CLIENT_ID
     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
