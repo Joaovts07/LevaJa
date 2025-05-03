@@ -3,6 +3,7 @@ package com.example.levaja.di
 import com.example.login.data.repository.AuthRepositoryImpl
 import com.example.login2.repository.AuthRepository
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,19 +15,16 @@ import javax.inject.Singleton
 object AppModule {
     @Provides
     @Singleton
-    fun provideFirebaseAuth(lazyAuth: dagger.Lazy<FirebaseAuth>): FirebaseAuth = lazyAuth.get()
+    fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
 
     @Provides
     @Singleton
-    fun provideFirebaseFirestore(): com.google.firebase.firestore.FirebaseFirestore =
-        com.google.firebase.firestore.FirebaseFirestore.getInstance()
+    fun provideFirebaseFirestore(): FirebaseFirestore =
+        FirebaseFirestore.getInstance()
 
     @Provides
     @Singleton
     fun provideFirebaseStorage(): com.google.firebase.storage.FirebaseStorage =
         com.google.firebase.storage.FirebaseStorage.getInstance()
 
-    @Provides
-    @Singleton
-    fun provideAuthRepository(): AuthRepository = AuthRepositoryImpl(FirebaseAuth.getInstance(), com.google.firebase.firestore.FirebaseFirestore.getInstance())
 }
