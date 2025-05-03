@@ -1,7 +1,7 @@
-package com.example.login.di
+package com.example.login2.di
 
-import com.example.login.data.repository.AuthRepository
 import com.example.login.data.repository.AuthRepositoryImpl
+import com.example.login2.repository.AuthRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

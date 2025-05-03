@@ -1,4 +1,4 @@
-package com.example.login.presentation.login
+package com.example.login2.presentation.login
 
 import android.app.Activity
 import android.util.Log
@@ -101,7 +101,7 @@ class LoginViewModel @Inject constructor(
         }
     }
 
-    private fun handleSignInResult(task: Task<GoogleSignInAccount>) {
+    fun handleSignInResult(task: Task<GoogleSignInAccount>) {
         try {
             val googleAccount = task.getResult(ApiException::class.java)
             googleAccount?.idToken?.let { idToken ->
