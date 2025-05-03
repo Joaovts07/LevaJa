@@ -1,6 +1,6 @@
 package com.example.login.domain.usecase
 
-import com.example.login.data.repository.AuthRepository
+import com.example.login2.repository.AuthRepository
 import javax.inject.Inject
 
 class CheckIfUserExistsUseCase @Inject constructor(private val authRepository: AuthRepository){
